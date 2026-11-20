@@ -1,0 +1,11 @@
+{
+  "name": "aurelia-grand-hotel",
+  "version": "1.0.0",
+  "description": "Aurelia Grand Hotel & Spa — Luxury hospitality showcase and interactive reservation engine",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["hotel", "booking", "hospitality", "reservations"],
+  "license": "MIT"
+}

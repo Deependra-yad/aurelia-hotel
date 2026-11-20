@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aurelia Grand Hotel &amp; Spa — Architectural Sanctuary &amp; Reservations</title>
+  <meta name="description" content="Aurelia Grand Hotel & Spa — An intimate 48-suite luxury sanctuary with thermal baths, seasonal hearth dining, and instant direct booking." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <!-- Sticky Navigation -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#top" class="brand-mark" aria-label="Aurelia Grand Hotel Home">
+        <span class="brand-monogram">A</span>
+        <span class="brand-text">
+          <strong>AURELIA</strong>
+          <small>GRAND HOTEL &amp; SPA</small>
+        </span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Primary Navigation">
+        <a href="#hotel">The Hotel</a>
+        <a href="#rooms">Rooms &amp; Suites</a>
+        <a href="#services">Dining &amp; Spa</a>
+        <a href="#offers">Offers</a>
+        <a href="#contact">Concierge</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="btn-ghost" id="openManageBtn">Manage Booking</button>
+        <button type="button" class="btn-primary" id="openBookingTopBtn">Reserve Stay</button>
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Full-Bleed Architectural Hero -->
+    <section class="hero">
+      <div class="hero-media">
+        <img id="heroBgImage" src="/images/hero-hotel.jpg" alt="Aurelia Grand Hotel travertine limestone courtyard at twilight" />
+        <div class="hero-scrim"></div>
+      </div>
+
+      <div class="container hero-content">
+        <div class="hero-eyebrow">
+          <span class="star-row" aria-hidden="true">★★★★★</span>
+          <span id="heroAccolade">Two Michelin Keys · 148 Promenade des Arts</span>
+        </div>
+        <h1 class="hero-title">
+          Where Quiet Architecture<br />
+          Meets <em>Timeless Hospitality</em>
+        </h1>
+        <p class="hero-subtitle">
+          Forty-eight sunlit suites, subterranean thermal mineral baths, and hearth-fired seasonal dining—steps from the waterfront promenade.
+        </p>
+
+        <!-- Integrated Quick Booking Engine Bar -->
+        <form class="quick-booking-bar" id="quickSearchForm" aria-label="Check Room Availability">
+          <div class="qb-field">
+            <label for="quickCheckIn">Check-in</label>
+            <input type="date" id="quickCheckIn" name="checkIn" required />
+          </div>
+          <div class="qb-divider"></div>
+          <div class="qb-field">
+            <label for="quickCheckOut">Check-out</label>
+            <input type="date" id="quickCheckOut" name="checkOut" required />
+          </div>
+          <div class="qb-divider"></div>
+          <div class="qb-field qb-guests">
+            <label for="quickAdults">Guests</label>
+            <div class="guest-selects">
+              <select id="quickAdults" name="adults" aria-label="Adults">
+                <option value="1">1 Adult</option>
+                <option value="2" selected>2 Adults</option>
+                <option value="3">3 Adults</option>
+                <option value="4">4 Adults</option>
+              </select>
+              <select id="quickChildren" name="children" aria-label="Children">
+                <option value="0" selected>0 Children</option>
+                <option value="1">1 Child</option>
+                <option value="2">2 Children</option>
+              </select>
+            </div>
+          </div>
+          <div class="qb-divider"></div>
+          <div class="qb-field">
+            <label for="quickPackage">Rate Preference</label>
+            <select id="quickPackage" name="packageId">
+              <option value="">Best Flexible Rate</option>
+              <option value="sanctuary-escape">Weekend Sanctuary (-15%)</option>
+              <option value="romantic-retreat">Romance &amp; Candlelight (-8%)</option>
+              <option value="executive-stay">Executive Atelier (-10%)</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-gold qb-submit">
+            Check Availability
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Trust & Hospitality Metrics Strip -->
+    <section class="metrics-strip">
+      <div class="container metrics-grid">
+        <div class="metric-item">
+          <span class="metric-val">48</span>
+          <span class="metric-label">Suites &amp; Atelier Rooms</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-val">14,000<small>ft²</small></span>
+          <span class="metric-label">Thermal Limestone Spa</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-val">24/7</span>
+          <span class="metric-label">Clefs d'Or Butler Service</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-val">4.98<small>/5</small></span>
+          <span class="metric-label">Verified Guest Rating</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Hotel Story & Philosophy -->
+    <section class="section hotel-story" id="hotel">
+      <div class="container story-grid">
+        <div class="story-copy">
+          <span class="section-kicker">The Sanctuary</span>
+          <h2 class="section-title">Restored Limestone Elegance, Designed for Unhurried Living</h2>
+          <p class="lead-text">
+            Carved out of a 1924 Beaux-Arts residence and reimagined by Milanese architects, Aurelia balances monumental travertine arches with tactile warmth—hand-oiled walnut, Belgian linen, and tranquil olive courtyards.
+          </p>
+
+          <div class="story-tabs" role="tablist" aria-label="Hotel Highlights">
+            <button type="button" class="story-tab active" data-tab="architecture" role="tab" aria-selected="true">Architecture</button>
+            <button type="button" class="story-tab" data-tab="butler" role="tab" aria-selected="false">Bespoke Service</button>
+            <button type="button" class="story-tab" data-tab="location" role="tab" aria-selected="false">The Quarter</button>
+          </div>
+
+          <div class="story-tab-panel" id="storyTabPanel">
+            <p>
+              Triple-glazed acoustic stonework isolates every room from the avenue outside, while private French terraces open directly onto centuries-old Mediterranean cypress and our serene central reflecting pool.
+            </p>
+          </div>
+
+          <div class="story-highlights">
+            <div>
+              <strong>Direct Booking Privileges</strong>
+              <span>Complimentary late checkout request, welcome botanical aperitif &amp; best rate guarantee.</span>
+            </div>
+            <div>
+              <strong>Check-in &amp; Departure</strong>
+              <span>Arrival from 3:00 PM · Departure until 12:00 PM · Private EQS limousine transfers.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="story-visual">
+          <div class="visual-frame">
+            <img id="storyFeatureImage" src="/images/room-suite.jpg" alt="Executive Garden Suite sitting salon opening onto cypress terrace" />
+            <div class="visual-caption">
+              <span>Atelier Wing · Second Floor</span>
+              <strong>Natural travertine, hand-loomed wool &amp; quiet garden vistas</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rooms & Suites Showcase with Live Availability -->
+    <section class="section rooms-section" id="rooms">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <span class="section-kicker">Accommodations</span>
+            <h2 class="section-title">Rooms, Suites &amp; The Penthouse</h2>
+          </div>
+          <div class="availability-banner" id="availabilitySummary">
+            Showing live rates for <strong id="summaryDatesLabel">selected dates</strong>
+          </div>
+        </div>
+
+        <div class="filter-bar" role="group" aria-label="Filter rooms by category">
+          <button type="button" class="filter-pill active" data-filter="all">All Accommodations</button>
+          <button type="button" class="filter-pill" data-filter="rooms">Atelier &amp; Deluxe Rooms</button>
+          <button type="button" class="filter-pill" data-filter="suites">Garden Suites</button>
+          <button type="button" class="filter-pill" data-filter="penthouse">Penthouse</button>
+        </div>
+
+        <div class="rooms-grid" id="roomsGrid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Signature Services: Spa & Fine Dining (Dark Contrast Editorial Band) -->
+    <section class="section services-dark" id="services">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-kicker kicker-gold">Services &amp; Experiences</span>
+          <h2 class="section-title light">Thermal Wellness, Hearth Dining &amp; Tailored Care</h2>
+          <p class="section-desc light">
+            Every stay includes access to our concierge team, morning courtyard movement, and 24-hour in-suite dining—with signature rituals ready to reserve alongside your room.
+          </p>
+        </div>
+
+        <div class="signature-services-grid" id="signatureServicesGrid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+
+        <div class="amenities-subheader">
+          <h3>Guest Privileges &amp; Hotel Services</h3>
+          <p>Thoughtful touches woven seamlessly into every arrival and departure.</p>
+        </div>
+
+        <div class="amenities-grid" id="additionalServicesGrid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Curated Packages & Offers -->
+    <section class="section offers-section" id="offers">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <span class="section-kicker">Curated Packages</span>
+            <h2 class="section-title">Seasonal Offers &amp; Bespoke Escapes</h2>
+          </div>
+          <p class="section-side-note">Select any offer below to apply its rate and privileges directly in our booking engine.</p>
+        </div>
+
+        <div class="packages-grid" id="packagesGrid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Guest Voices / Testimonials -->
+    <section class="section testimonials-section">
+      <div class="container">
+        <div class="section-header-center">
+          <span class="section-kicker">Guest Impressions</span>
+          <h2 class="section-title">Notes From Recent Stays</h2>
+        </div>
+
+        <div class="testimonials-grid" id="testimonialsGrid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ & Concierge Contact -->
+    <section class="section contact-section" id="contact">
+      <div class="container contact-grid">
+        <div class="faq-column">
+          <span class="section-kicker">Before You Arrive</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <div class="faq-list" id="faqList">
+            <!-- Populated dynamically by app.js -->
+          </div>
+        </div>
+
+        <div class="concierge-card">
+          <span class="section-kicker">24/7 Concierge Desk</span>
+          <h3>Plan a Bespoke Stay or Private Event</h3>
+          <p>
+            Need connecting family suites, private dining in our Glass Cellar, wedding buyouts, or airport chauffeur coordination? Write directly to our head concierge.
+          </p>
+
+          <form id="conciergeForm" class="concierge-form">
+            <div class="form-row-2">
+              <div class="field-group">
+                <label for="inqName">Your Name</label>
+                <input type="text" id="inqName" required placeholder="Sophia Laurent" />
+              </div>
+              <div class="field-group">
+                <label for="inqEmail">Email Address</label>
+                <input type="email" id="inqEmail" required placeholder="sophia@example.com" />
+              </div>
+            </div>
+            <div class="field-group">
+              <label for="inqTopic">Inquiry Topic</label>
+              <select id="inqTopic">
+                <option value="Suite & Stay Request">Suite &amp; Stay Request</option>
+                <option value="Airport Chauffeur">Private Airport Chauffeur</option>
+                <option value="Spa & Dining Reservation">Thermal Spa &amp; Dining</option>
+                <option value="Private Event / Wedding">Private Event or Wedding</option>
+              </select>
+            </div>
+            <div class="field-group">
+              <label for="inqMessage">Message</label>
+              <textarea id="inqMessage" rows="3" required placeholder="Share your preferred dates, celebration details, or special requests..."></textarea>
+            </div>
+            <button type="submit" class="btn-primary full-width">Send Message to Concierge</button>
+            <div class="form-feedback" id="conciergeFeedback" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <div class="brand-mark light">
+          <span class="brand-monogram">A</span>
+          <span class="brand-text">
+            <strong>AURELIA</strong>
+            <small>GRAND HOTEL &amp; SPA</small>
+          </span>
+        </div>
+        <p>
+          148 Promenade des Arts, Heritage Quarter<br />
+          Reservations: +1 (800) 555-0194<br />
+          concierge@aureliagrand.com
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Accommodations</h4>
+        <a href="#rooms">Courtyard Atelier King</a>
+        <a href="#rooms">Deluxe Terrace King</a>
+        <a href="#rooms">Executive Garden Suite</a>
+        <a href="#rooms">The Aurelia Penthouse</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Experiences</h4>
+        <a href="#services">Thermal Sanctuary &amp; Spa</a>
+        <a href="#services">Atelier Lumiére Dining</a>
+        <a href="#offers">Weekend Sanctuary Offer</a>
+        <a href="#contact">Private Events &amp; Salons</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Reservations</h4>
+        <button type="button" class="footer-link-btn" id="footerBookBtn">Book Your Stay</button>
+        <button type="button" class="footer-link-btn" id="footerManageBtn">Manage / Cancel Booking</button>
+        <a href="#contact">Airport Transfers</a>
+        <a href="#contact">Check-in &amp; Policies</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 Aurelia Grand Hotel &amp; Spa. All rights reserved.</span>
+      <span>Local Demo Reservation System · Instant Confirmation</span>
+    </div>
+  </footer>
+
+  <!-- Room Detail Modal -->
+  <div class="modal-backdrop" id="roomModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="dialog" aria-modal="true" aria-labelledby="roomModalTitle">
+      <button type="button" class="modal-close" data-close="roomModal" aria-label="Close Room Details">✕</button>
+      <div id="roomModalBody"></div>
+    </div>
+  </div>
+
+  <!-- Multi-Step Booking Modal -->
+  <div class="modal-backdrop" id="bookingModal" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
+      <button type="button" class="modal-close" data-close="bookingModal" aria-label="Close Booking Window">✕</button>
+
+      <div class="booking-header">
+        <div>
+          <span class="section-kicker">Direct Reservation</span>
+          <h2 id="bookingModalTitle">Reserve Your Stay at Aurelia</h2>
+        </div>
+        <div class="step-indicator" id="stepIndicator">
+          <span class="step-dot active" data-step="1">1. Stay &amp; Room</span>
+          <span class="step-dot" data-step="2">2. Enhancements</span>
+          <span class="step-dot" data-step="3">3. Guest Details</span>
+          <span class="step-dot" data-step="4">4. Confirmed</span>
+        </div>
+      </div>
+
+      <div class="booking-layout" id="bookingLayout">
+        <div class="booking-main-pane" id="bookingMainPane">
+          <!-- Step views rendered dynamically -->
+        </div>
+
+        <aside class="booking-summary-pane" id="bookingSummaryPane">
+          <!-- Live itemized reservation summary rendered dynamically -->
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <!-- Manage Existing Booking Modal -->
+  <div class="modal-backdrop" id="manageModal" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="dialog" aria-modal="true" aria-labelledby="manageModalTitle">
+      <button type="button" class="modal-close" data-close="manageModal" aria-label="Close Manage Booking">✕</button>
+      <span class="section-kicker">Reservation Lookup</span>
+      <h2 id="manageModalTitle">Manage or Cancel Your Booking</h2>
+      <p class="muted-copy">Enter your confirmation code (e.g. <code>AUR-XXXXXX</code>) to review your itinerary, print your receipt, or cancel your stay.</p>
+
+      <form id="lookupBookingForm" class="lookup-form">
+        <input type="text" id="lookupCodeInput" placeholder="AUR-XXXXXX" required />
+        <button type="submit" class="btn-primary">Find Reservation</button>
+      </form>
+
+      <div id="recentCodesBox" class="recent-codes-box"></div>
+      <div id="manageResultBox" class="manage-result-box"></div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

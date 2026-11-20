@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aurelia Admin Console — Property, Pricing &amp; Media Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/admin.css" />
+</head>
+<body>
+  <!-- Login Gate -->
+  <section class="login-screen" id="loginScreen">
+    <div class="login-card">
+      <div class="brand-badge">A</div>
+      <h1>Aurelia Admin Console</h1>
+      <p>Manage room pricing, inventory, media uploads, packages, and live guest reservations.</p>
+      <form id="adminLoginForm">
+        <label for="adminPasscode">Admin Passcode</label>
+        <input type="password" id="adminPasscode" placeholder="Enter passcode" value="admin123" required />
+        <button type="submit" class="btn-gold full">Sign In to Console</button>
+        <div class="login-hint">Default local passcode: <code>admin123</code></div>
+        <div class="error-msg" id="loginError"></div>
+      </form>
+      <a href="/" class="back-site-link">← Return to Public Hotel Website</a>
+    </div>
+  </section>
+
+  <!-- Main Admin Shell -->
+  <div class="admin-shell hidden" id="adminShell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-badge sm">A</div>
+        <div>
+          <strong>AURELIA</strong>
+          <small>ADMIN CONSOLE</small>
+        </div>
+      </div>
+
+      <nav class="side-nav" id="sideNav">
+        <button type="button" class="nav-item active" data-tab="overview">Overview</button>
+        <button type="button" class="nav-item" data-tab="rooms">Rooms &amp; Pricing</button>
+        <button type="button" class="nav-item" data-tab="media">Media &amp; Images</button>
+        <button type="button" class="nav-item" data-tab="offers">Add-ons &amp; Packages</button>
+        <button type="button" class="nav-item" data-tab="brand">Hotel &amp; Services</button>
+        <button type="button" class="nav-item" data-tab="bookings">Reservations &amp; Inquiries</button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="/" target="_blank" class="btn-outline-light full">View Live Website ↗</a>
+        <button type="button" class="btn-ghost-light full" id="logoutBtn">Sign Out</button>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div>
+          <span class="kicker">Property Management</span>
+          <h2 id="pageTitle">Dashboard Overview</h2>
+        </div>
+        <div class="topbar-actions">
+          <span class="toast" id="toastMsg" role="status" aria-live="polite"></span>
+          <button type="button" class="btn-outline" id="refreshAllBtn">Refresh Data</button>
+        </div>
+      </header>
+
+      <div class="tab-content" id="tabContent">
+        <!-- Rendered dynamically by admin.js -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Room Editor Modal -->
+  <div class="modal-backdrop" id="roomEditorModal" aria-hidden="true">
+    <div class="modal-dialog">
+      <button type="button" class="modal-close" id="closeRoomModal">✕</button>
+      <h3 id="roomEditorTitle">Edit Room</h3>
+      <form id="roomEditorForm" class="editor-form">
+        <input type="hidden" id="editRoomId" />
+        <div class="grid-2">
+          <div class="field">
+            <label for="editRoomName">Room / Suite Name *</label>
+            <input type="text" id="editRoomName" required />
+          </div>
+          <div class="field">
+            <label for="editRoomCategory">Category</label>
+            <select id="editRoomCategory">
+              <option value="rooms">Rooms</option>
+              <option value="suites">Suites</option>
+              <option value="penthouse">Penthouse</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="field">
+            <label for="editRoomPrice">Nightly Rate (USD) *</label>
+            <input type="number" id="editRoomPrice" min="1" required />
+          </div>
+          <div class="field">
+            <label for="editRoomInventory">Total Inventory</label>
+            <input type="number" id="editRoomInventory" min="0" required />
+          </div>
+          <div class="field">
+            <label for="editRoomGuests">Max Guests</label>
+            <input type="number" id="editRoomGuests" min="1" max="12" required />
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="field">
+            <label for="editRoomSqFt">Size (sq ft)</label>
+            <input type="number" id="editRoomSqFt" min="50" />
+          </div>
+          <div class="field">
+            <label for="editRoomBed">Bed Configuration</label>
+            <input type="text" id="editRoomBed" />
+          </div>
+          <div class="field">
+            <label for="editRoomBadge">Badge Label</label>
+            <input type="text" id="editRoomBadge" />
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="editRoomView">View</label>
+            <input type="text" id="editRoomView" />
+          </div>
+          <div class="field">
+            <label for="editRoomImage">Room Image</label>
+            <select id="editRoomImage"></select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="editRoomTagline">Short Tagline</label>
+          <input type="text" id="editRoomTagline" />
+        </div>
+
+        <div class="field">
+          <label for="editRoomDesc">Full Description</label>
+          <textarea id="editRoomDesc" rows="3"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="editRoomAmenities">Amenities (one per line)</label>
+          <textarea id="editRoomAmenities" rows="4"></textarea>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn-outline" id="cancelRoomModal">Cancel</button>
+          <button type="submit" class="btn-gold">Save Room Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/admin.js"></script>
+</body>
+</html>
